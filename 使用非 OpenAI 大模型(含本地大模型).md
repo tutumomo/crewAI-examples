@@ -1,4 +1,3 @@
-```
 crewAI 範例的基本架構，
 主程式：main.py
 智能體：agent.py
@@ -27,13 +26,17 @@ llm = Gemini_llm
 
 方法2. 列出 GPT3.5、GPT4、Ollama、Gemini Pro，使用時再擇一即可。
 from langchain_google_genai import ChatGoogleGenerativeAI
+
 # This is an example of how to define custom agents.
+
 # You can define as many agents as you want.
+
 # You can also define custom tasks in tasks.py
+
 class CustomAgents:
     def __init__(self):
-        self.OpenAIGPT35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
-        self.OpenAIGPT4 = ChatOpenAI(model_name="gpt-4", temperature=0.7)
+        self.GPT35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
+        self.GPT4 = ChatOpenAI(model_name="gpt-4", temperature=0.7)
         self.Ollama = Ollama(model="openhermes")
         self.Gemini_llm = ChatGoogleGenerativeAI(model = "gemini-pro", verbose = True, temperature = 0.6, google_api_key = os.environ["GOOGLE_API_KEY"])
 
@@ -62,4 +65,3 @@ class CustomAgents:
             # llm=self.Ollama,
             llm=self.Gemini_llm,
         )
-```
