@@ -9,7 +9,7 @@ class GameTasks():
 			------------
     	{game}
 
-			輸出代碼並寫入本地"D:\TOMO.Project\crewAI\crewAI-examples\game-builder-crew"資料夾內，檔案名稱依據遊戲命名，並依據-01、-02、-03給定版次，然後執行代碼。
+			Your Final answer must be the full python code, only the python code and nothing else.
 			"""),
 			agent=agent
 		)
@@ -26,7 +26,7 @@ class GameTasks():
 			syntax errors, missing imports, variable declarations, mismatched brackets,
 			and security vulnerabilities.
 
-			輸出代碼並寫入本地"D:\TOMO.Project\crewAI\crewAI-examples\game-builder-crew"資料夾內，檔案名稱依據遊戲命名，並依據-01、-02、-03給定版次，然後執行代碼。
+			Your Final answer must be the full python code, only the python code and nothing else.
 			"""),
 			agent=agent
 		)
@@ -42,7 +42,7 @@ class GameTasks():
 			You will look over the code to insure that it is complete and
 			does the job that it is supposed to do.
 
-			輸出代碼並寫入本地"D:\TOMO.Project\crewAI\crewAI-examples\game-builder-crew"資料夾內，檔案名稱依據遊戲命名，並依據-01、-02、-03給定版次，然後執行代碼。
+			Your Final answer must be the full python code, only the python code and nothing else.			
 			"""),
 			agent=agent
 		)

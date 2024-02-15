@@ -1,3 +1,4 @@
+import os
 from crewai import Agent
 
 from tools.browser_tools import BrowserTools
@@ -6,6 +7,13 @@ from tools.search_tools import SearchTools
 from tools.sec_tools import SECTools
 
 from langchain.tools.yahoo_finance_news import YahooFinanceNewsTool
+from langchain_google_genai import ChatGoogleGenerativeAI
+Gemini_llm = ChatGoogleGenerativeAI(
+    model = "gemini-pro",
+    verbose = True,
+    temperature = 0.6,
+    google_api_key = os.environ["GOOGLE_API_KEY"]
+    )
 
 class StockAnalysisAgents():
   def financial_analyst(self):
@@ -15,8 +23,9 @@ class StockAnalysisAgents():
       and market trends analysis""",
       backstory="""The most seasoned financial analyst with 
       lots of expertise in stock market analysis and investment
-      strategies that is working for a super important customer.""",
+      strategies that is working for a super important customer. You should always reply in traditional chinese.""",
       verbose=True,
+      llm = Gemini_llm,
       tools=[
         BrowserTools.scrape_and_summarize_website,
         SearchTools.search_internet,
@@ -34,8 +43,9 @@ class StockAnalysisAgents():
       backstory="""Known as the BEST research analyst, you're
       skilled in sifting through news, company announcements, 
       and market sentiments. Now you're working on a super 
-      important customer""",
+      important customer. You should always reply in traditional chinese.""",
       verbose=True,
+      llm = Gemini_llm,
       tools=[
         BrowserTools.scrape_and_summarize_website,
         SearchTools.search_internet,
@@ -54,8 +64,9 @@ class StockAnalysisAgents():
       backstory="""You're the most experienced investment advisor
       and you combine various analytical insights to formulate
       strategic investment advice. You are now working for
-      a super important customer you need to impress.""",
+      a super important customer you need to impress. You should always reply in traditional chinese.""",
       verbose=True,
+      llm = Gemini_llm,
       tools=[
         BrowserTools.scrape_and_summarize_website,
         SearchTools.search_internet,

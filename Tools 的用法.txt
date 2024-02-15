@@ -1,0 +1,37 @@
+在專案資料夾內建立 Tools 子資料夾
+1.放入空檔案 __init__.py
+
+2.放入需要的 py 工具檔案。例如 browser_tools.py、calculator_tools.py、file_tools.py、search_tools.py 等
+
+3.在需要使用這些工具的檔案，import 這些檔案，使用它們的函式。例如：
+    from tools.browser_tools import BrowserTools
+    from tools.calculator_tools import CalculatorTools
+    from tools.file_tools import FileTools
+    from tools.search_tools import SearchTools
+    from tools.sec_tools import SECTools
+    from tools.template_tools import TemplateTools
+
+    from langchain.tools.yahoo_finance_news import YahooFinanceNewsTool
+
+4.在 agent.py 定義 agent 類別時，指定可使用的 Tools
+        tools=[
+        BrowserTools.scrape_and_summarize_website,
+        CalculatorTools.calculate,
+        FileTools.write_file,     
+        SearchTools.search_internet,
+        SearchTools.search_news,
+        SECTools.search_10q,
+        SECTools.search_10k,
+        TemplateTools.learn_landing_page_options,
+        TemplateTools.copy_landing_page_template_to_project_folder,
+        YahooFinanceNewsTool()
+        ]
+
+5.看到另一種用法，尚不能理解為何後面還加上 "+ toolkit.get_tools()"
+      tools=[
+          SearchTools.search_internet,
+          BrowserTools.scrape_and_summarize_website,
+          TemplateTools.learn_landing_page_options,
+          TemplateTools.copy_landing_page_template_to_project_folder,
+          FileTools.write_file
+      ] + toolkit.get_tools()

@@ -1,0 +1,10 @@
+這些案例很多都是使用 poetry 的虛擬環境
+步驟1 - python 需先安裝 poetry
+pip install -U poetry
+
+步驟2 - 切換到案例資料夾內
+poetry install --no-root
+自動 Installing dependencies from lock file
+
+步驟3 - 執行案例
+poetry run python main.py
