@@ -18,7 +18,7 @@ gpt35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7),
 gpt4 = ChatOpenAI(model_name="gpt-4", temperature=0.7),
 ollama_llm = Ollama(model="openhermes"),
 # gemini 突然變成無法執行了，哀
-# gemini = ChatGoogleGenerativeAI(model = "gemini-pro", verbose = True, temperature = 0.6, google_api_key = os.environ["GOOGLE_API_KEY"]),
+gemini = ChatGoogleGenerativeAI(model = "gemini-pro", verbose = True, temperature = 0.6, google_api_key = os.environ["GOOGLE_API_KEY"]),
 
 from langchain.tools import DuckDuckGoSearchRun
 search_tool = DuckDuckGoSearchRun()
