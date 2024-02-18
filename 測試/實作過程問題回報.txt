@@ -1,4 +1,9 @@
 1.加入 gemini pro 模型會導致無法執行
 2.Ollama 模型的 Tools 調用應該OK(另一個 agent-phidata 似乎就無法調用)
 3.用 jupyter notebook 執行"result = crew.kickoff()"時，會出現錯誤，導致 jupyter notebook 無法使用，悲劇~
+4.主要因為 pyzmq 的版本問題，導致 jupyter notebook 完全無法使用，悲劇
 
+=============================
+5.可能的解決辦法，
+    使用 PYTHON 3.9 版
+    不要使用 notebook

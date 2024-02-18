@@ -64,7 +64,7 @@ task2 = Task(
   post that highlights the most significant AI advancements.
   Your post should be informative yet accessible, catering to a tech-savvy audience.
   Make it sound cool, avoid complex words so it doesn't sound like AI.
-  Your final answer MUST be the full blog post of at least 4 paragraphs using taditional chinese writing.
+  Your final answer MUST be the full blog post of at least 5 paragraphs using taditional chinese writing.
   """,
   agent=writer
 )
