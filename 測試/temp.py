@@ -1,14 +1,11 @@
 import os
 from crewai import Agent, Task, Crew, Process
-from langchain_google_genai import ChatGoogleGenerativeAI
 
 # os.environ["OPENAI_API_KEY"] = "YOUR_API_KEY"
 
 # You can choose to use a local model through Ollama for example. See ./docs/how-to/llm-connections.md for more information.
 from langchain_community.llms import Ollama
 ollama_llm = Ollama(model="openhermes")
-# gemini 突然就不能用了
-gemini = ChatGoogleGenerativeAI(model = "gemini-pro", verbose = True, temperature = 0.6, google_api_key = os.environ["GOOGLE_API_KEY"]),
 
 # Install duckduckgo-search for this example:
 # !pip install -U duckduckgo-search
@@ -61,8 +58,7 @@ task2 = Task(
   post that highlights the most significant AI advancements.
   Your post should be informative yet accessible, catering to a tech-savvy audience.
   Make it sound cool, avoid complex words so it doesn't sound like AI.
-  Your final answer MUST be the full blog post of at least 4 paragraphs.
-  And always use Traditional chinese to express.""",
+  Your final answer MUST be the full blog post of at least 4 paragraphs.""",
   agent=writer
 )
 
