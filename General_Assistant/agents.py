@@ -2,7 +2,7 @@
 import os
 from crewai import Agent
 from textwrap import dedent
-from langchain.llms import OpenAI, Ollama
+from langchain_community.llms import OpenAI, Ollama
 from langchain_openai import ChatOpenAI
 from langchain_google_genai import ChatGoogleGenerativeAI
 
@@ -24,8 +24,8 @@ from langchain.tools.yahoo_finance_news import YahooFinanceNewsTool
 
 class CustomAgents:
     def __init__(self):
-        self.OpenAIGPT35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7),
-        self.OpenAIGPT4 = ChatOpenAI(model_name="gpt-4", temperature=0.7),
+        self.GPT35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7),
+        self.GPT4 = ChatOpenAI(model_name="gpt-4", temperature=0.7),
         self.Ollama = Ollama(model="openhermes"),
         self.Gemini_llm = ChatGoogleGenerativeAI(model = "gemini-pro", verbose = True, temperature = 0.6, google_api_key = os.environ["GOOGLE_API_KEY"]),
         self.llm=self.Gemini_llm
