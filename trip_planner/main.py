@@ -1,3 +1,7 @@
+# 執行過程烙是出現
+# Invalid Format: Missing 'Action:' after 'Thought: 的錯誤訊息
+# 不確定是因為要求他要用中文回復還是有其他 bug 造成的
+# 執行程式：poetry run python main.py
 from crewai import Crew
 from textwrap import dedent
 from trip_agents import TripAgents
@@ -76,6 +80,6 @@ if __name__ == "__main__":
   trip_crew = TripCrew(location, cities, date_range, interests)
   result = trip_crew.run()
   print("\n\n########################")
-  print("## Here is you Trip Plan")
+  print("## 您的旅遊計畫如下")
   print("########################\n")
   print(result)
