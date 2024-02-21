@@ -58,23 +58,23 @@ class TripCrew:
     return result
 
 if __name__ == "__main__":
-  print("## Welcome to Trip Planner Crew")
-  print('-------------------------------')
+  print("## Welcome to Trip Planner Crew 歡迎使用本旅遊助手")
+  print('--------------------------------------------------')
   location = input(
     dedent("""
-      From where will you be traveling from?
+      From where will you be traveling from? 出發地點?
     """))
   cities = input(
     dedent("""
-      What are the cities options you are interested in visiting?
+      What are the cities options you are interested in visiting? 預計出遊地點?
     """))
   date_range = input(
     dedent("""
-      What is the date range you are interested in traveling?
+      What is the date range you are interested in traveling? 出遊日期?
     """))
   interests = input(
     dedent("""
-      What are some of your high level interests and hobbies?
+      What are some of your high level interests and hobbies? 興趣、愛好?
     """))
   
   trip_crew = TripCrew(location, cities, date_range, interests)

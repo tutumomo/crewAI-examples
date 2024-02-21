@@ -9,18 +9,14 @@ from tasks import CustomTasks
 
 # Install duckduckgo-search for this example:
 # !pip install -U duckduckgo-search
-
 from langchain.tools import DuckDuckGoSearchRun
-
 search_tool = DuckDuckGoSearchRun()
 
-os.environ["OPENAI_API_KEY"] = config("OPENAI_API_KEY")
-os.environ["OPENAI_ORGANIZATION"] = config("OPENAI_ORGANIZATION_ID")
+# os.environ["OPENAI_API_KEY"] = config("OPENAI_API_KEY")
+# os.environ["OPENAI_ORGANIZATION"] = config("OPENAI_ORGANIZATION_ID")
 
 # This is the main class that you will use to define your custom crew.
 # You can define as many agents and tasks as you want in agents.py and tasks.py
-
-
 class CustomCrew:
     def __init__(self, var1, var2):
         self.var1 = var1
@@ -32,17 +28,17 @@ class CustomCrew:
         tasks = CustomTasks()
 
         # Define your custom agents and tasks here
-        custom_agent_1 = agents.agent_1_name()
-        custom_agent_2 = agents.agent_2_name()
+        custom_agent_1 = agents.agent_1()
+        custom_agent_2 = agents.agent_2()
 
         # Custom tasks include agent name and variables as input
-        custom_task_1 = tasks.task_1_name(
+        custom_task_1 = tasks.task_1(
             custom_agent_1,
             self.var1,
             self.var2,
         )
 
-        custom_task_2 = tasks.task_2_name(
+        custom_task_2 = tasks.task_2(
             custom_agent_2,
         )
 

@@ -1,19 +1,28 @@
 import os
 from crewai import Agent
 
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_community.llms import OpenAI, Ollama
+from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
+
 from tools.browser_tools import BrowserTools
 from tools.calculator_tools import CalculatorTools
 from tools.search_tools import SearchTools
 from tools.sec_tools import SECTools
 
 from langchain.tools.yahoo_finance_news import YahooFinanceNewsTool
-from langchain_google_genai import ChatGoogleGenerativeAI
-Gemini_llm = ChatGoogleGenerativeAI(
-    model = "gemini-pro",
-    verbose = True,
-    temperature = 0.6,
-    google_api_key = os.environ["GOOGLE_API_KEY"]
-    )
+# 設定4個 LLM
+# crewai 使用 Ollama 的方法：windows 只需要打開 ubuntu 視窗即可，不需要執行 litellm；Mac 則甚至不需要啟動任何程式，只要有安裝好 Ollama 即可調用。
+# 與 autogen 不同，autogen 要調用 Ollama 需要執行 litellm，多一道步驟，比較麻煩
+gpt35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7),
+gpt4 = ChatOpenAI(model_name="gpt-4", temperature=0.7),
+ollama = Ollama(model="openhermes_assistant")  # 這是用 modelfile 建立的
+gemini = ChatGoogleGenerativeAI(model="gemini-pro",
+                             verbose = True,
+                             temperature = 0.6,
+                             google_api_key = os.environ["GOOGLE_API_KEY"]
+                             )
 
 class StockAnalysisAgents():
   def financial_analyst(self):
@@ -25,7 +34,7 @@ class StockAnalysisAgents():
       lots of expertise in stock market analysis and investment
       strategies that is working for a super important customer. You should always reply in traditional chinese.""",
       verbose=True,
-      llm = Gemini_llm,
+      llm = gpt35,
       tools=[
         BrowserTools.scrape_and_summarize_website,
         SearchTools.search_internet,
@@ -45,7 +54,7 @@ class StockAnalysisAgents():
       and market sentiments. Now you're working on a super 
       important customer. You should always reply in traditional chinese.""",
       verbose=True,
-      llm = Gemini_llm,
+      llm = gpt35,
       tools=[
         BrowserTools.scrape_and_summarize_website,
         SearchTools.search_internet,
@@ -66,12 +75,14 @@ class StockAnalysisAgents():
       strategic investment advice. You are now working for
       a super important customer you need to impress. You should always reply in traditional chinese.""",
       verbose=True,
-      llm = Gemini_llm,
+      llm = gpt35,
       tools=[
         BrowserTools.scrape_and_summarize_website,
         SearchTools.search_internet,
         SearchTools.search_news,
         CalculatorTools.calculate,
-        YahooFinanceNewsTool()
+        YahooFinanceNewsTool(),
+        SECTools.search_10q,
+        SECTools.search_10k
       ]
     )
