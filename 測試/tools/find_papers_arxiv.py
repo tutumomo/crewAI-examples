@@ -39,8 +39,8 @@ import hashlib
 import arxiv
 from langchain.tools import tool
 
-# class FindPapersArxiv():
-#     @tool("Searches arXiv for the given query") 
+class FindPapersArxiv():
+    @tool("Searches arXiv for the given query") 
     def search_arxiv(query, max_results=10):
         """
         Searches arXiv for the given query using the arXiv API, then returns the search results.

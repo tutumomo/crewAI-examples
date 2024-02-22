@@ -2,9 +2,9 @@ import json
 import httpx
 from langchain.tools import tool
 
-# class GetTopHackernewsStories():
+class GetTopHackernewsStories():
  
-#    @tool("Get top stories from Hacker News.")
+    @tool("Get top stories from Hacker News.")
     def get_top_hackernews_stories(tool_input={}, num_stories: int = 10) -> str:
         """Use this function to get top stories from Hacker News.
         Args:
