@@ -13,7 +13,7 @@ from tools.sec_tools import SECTools
 
 from langchain.tools.yahoo_finance_news import YahooFinanceNewsTool
 # 設定4個 LLM
-# crewai 使用 Ollama 的方法：windows 只需要打開 ubuntu 視窗即可，不需要執行 litellm；Mac 則甚至不需要啟動任何程式，只要有安裝好 Ollama 即可調用。
+# crewai 使用 Ollama 的方法：原本 windows 需要打開 ubuntu 視窗，20240220 Ollama 發布 windows 版後，就可以不需要 Ubyntu 囉，也不需要執行 litellm；Mac 則甚至不需要啟動任何程式，只要有安裝好 Ollama 即可調用。
 # 與 autogen 不同，autogen 要調用 Ollama 需要執行 litellm，多一道步驟，比較麻煩
 gpt35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7),
 gpt4 = ChatOpenAI(model_name="gpt-4", temperature=0.7),
@@ -32,9 +32,9 @@ class StockAnalysisAgents():
       and market trends analysis""",
       backstory="""The most seasoned financial analyst with 
       lots of expertise in stock market analysis and investment
-      strategies that is working for a super important customer. You should always reply in traditional chinese.""",
+      strategies that is working for a super important customer. You should always reply in English and traditional chinese both.""",
       verbose=True,
-      llm = gpt35,
+      llm = gemini,
       tools=[
         BrowserTools.scrape_and_summarize_website,
         SearchTools.search_internet,
@@ -52,9 +52,9 @@ class StockAnalysisAgents():
       backstory="""Known as the BEST research analyst, you're
       skilled in sifting through news, company announcements, 
       and market sentiments. Now you're working on a super 
-      important customer. You should always reply in traditional chinese.""",
+      important customer. You should always reply in English and traditional chinese both.""",
       verbose=True,
-      llm = gpt35,
+      llm = gemini,
       tools=[
         BrowserTools.scrape_and_summarize_website,
         SearchTools.search_internet,
@@ -73,9 +73,9 @@ class StockAnalysisAgents():
       backstory="""You're the most experienced investment advisor
       and you combine various analytical insights to formulate
       strategic investment advice. You are now working for
-      a super important customer you need to impress. You should always reply in traditional chinese.""",
+      a super important customer you need to impress. You should always reply in English and traditional chinese both.""",
       verbose=True,
-      llm = gpt35,
+      llm = gemini,
       tools=[
         BrowserTools.scrape_and_summarize_website,
         SearchTools.search_internet,
