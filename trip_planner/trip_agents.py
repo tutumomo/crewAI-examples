@@ -1,3 +1,5 @@
+# Agent 定義，使用 gemini pro 可行。
+# 匯入套件
 import os
 from crewai import Agent
 # from langchain.llms import OpenAI
@@ -9,6 +11,7 @@ from tools.browser_tools import BrowserTools
 from tools.calculator_tools import CalculatorTools
 from tools.search_tools import SearchTools
 
+# 定義 llm
 ollama_llm = Ollama(model="mistral") 
 
 Gemini_llm = ChatGoogleGenerativeAI(
@@ -18,6 +21,12 @@ Gemini_llm = ChatGoogleGenerativeAI(
     google_api_key = os.environ["GOOGLE_API_KEY"]
     )
 
+"""
+定義了一個名為 TripAgents 的類別，其中包含了三個方法：
+city_selection_agent: 創建一個城市選擇專家的代理人，其目標是根據天氣、季節和價格來選擇最佳城市。
+local_expert: 創建一個當地專家的代理人，其目標是提供有關所選城市的最佳見解。
+travel_concierge: 創建一個旅行服務的代理人，其目標是創建最令人驚艷的旅行行程，包括預算和打包建議。
+"""
 class TripAgents():
 
   def city_selection_agent(self):

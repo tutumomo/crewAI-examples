@@ -9,7 +9,7 @@ class CustomTasks:
     def __tip_section(self):
         return "If you do your BEST WORK, I'll give you a $10,000 commission!"
 
-    def task_1_name(self, agent, var1, var2):
+    def task_1(self, agent, var1, var2):
         return Task(
             description=dedent(
                 f"""
@@ -26,7 +26,7 @@ class CustomTasks:
             agent=agent,
         )
 
-    def task_2_name(self, agent):
+    def task_2(self, agent):
         return Task(
             description=dedent(
                 f"""

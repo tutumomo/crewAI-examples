@@ -25,7 +25,7 @@ class TripTasks():
         Trip Date: {range}
         Traveler Interests: {interests}
       """),
-                agent=agent)
+        agent=agent)
 
   def gather_task(self, agent, origin, interests, range):
     return Task(description=dedent(f"""
@@ -50,7 +50,7 @@ class TripTasks():
         Traveling from: {origin}
         Traveler Interests: {interests}
       """),
-                agent=agent)
+        agent=agent)
 
   def plan_task(self, agent, origin, interests, range):
     return Task(description=dedent(f"""
@@ -77,7 +77,7 @@ class TripTasks():
         Traveling from: {origin}
         Traveler Interests: {interests}
       """),
-                agent=agent)
+        agent=agent)
 
   def __tip_section(self):
     return "If you do your BEST WORK, I'll tip you $100!"
