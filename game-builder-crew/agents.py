@@ -28,8 +28,9 @@ from tools.file_tools import FileTools
 GPT35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
 GPT4 = ChatOpenAI(model_name="gpt-4", temperature=0.7)
 Ollama = Ollama(model="openhermes")
+Ollama_openhermes = Ollama(model="openhermes_assistant")
 Gemini = ChatGoogleGenerativeAI(model = "gemini-pro",verbose = True,temperature = 0.6,google_api_key = os.environ["GOOGLE_API_KEY"])
-llm = GPT35 # 在這裡指定要使用上面的哪一個大模型即可
+llm = Ollama_openhermes # 在這裡指定要使用上面的哪一個大模型即可
 
 class GameAgents():
 	def senior_engineer_agent(self):

@@ -5,9 +5,10 @@ from crewai import Agent, Task, Crew, Process
 
 # You can choose to use a local model through Ollama for example. See ./docs/how-to/llm-connections.md for more information.
 from langchain_community.llms import Ollama
-# from langchain_google_genai import ChatGoogleGenerativeAI
-ollama = Ollama(model="openhermes")
-# gemini = ChatGoogleGenerativeAI(model = "gemini-pro", verbose = True, temperature = 0.6, google_api_key = os.environ["GOOGLE_API_KEY"]),
+from langchain_google_genai import ChatGoogleGenerativeAI
+# ollama = Ollama(model="openhermes")
+ollama = Ollama(model="openhermes_assistant")
+gemini = ChatGoogleGenerativeAI(model = "gemini-pro", verbose = True, temperature = 0.6, google_api_key = os.environ["GOOGLE_API_KEY"]),
 # gemini = ChatGoogleGenerativeAI(model = "gemini-1.0-pro", verbose = True, temperature = 0.6, google_api_key = os.environ["GOOGLE_API_KEY"]),
 
 # Install duckduckgo-search for this example:
@@ -34,7 +35,7 @@ researcher = Agent(
   # Examples:
   #
   # from langchain_community.llms import Ollama
-  llm=ollama # was defined above in the file
+  # llm=ollama # was defined above in the file
   #
   # from langchain_openai import ChatOpenAI
   # llm=ChatOpenAI(model_name="gpt-3.5", temperature=0.7)
@@ -47,9 +48,12 @@ writer = Agent(
   verbose=True,
   allow_delegation=True,
   debug_mode=True,
-  llm=ollama
+  # llm=ollama
   # (optional) llm=ollama_llm
 )
+
+researcher.llm = ollama
+writer.llm = gemini
 
 # Create tasks for your agents
 task1 = Task(
