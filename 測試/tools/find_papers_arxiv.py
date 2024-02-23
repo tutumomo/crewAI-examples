@@ -25,12 +25,18 @@ max_results：最多返回的結果數量，預設為10。
 返回結果：返回處理後的搜索結果列表。
 整體而言，這個函數提供了從arXiv檢索學術文獻並將結果緩存到本地的功能，這可以提高重複查詢的效率。
 =====================================================
-這是 autogen 範例的 skills(Tools)，
-autogen 的 skills：
-未使用 class 定義類別，只使用函式定義函式當成工具
-比較像 phidata 主程式裡面直接定義函式當然工具
-但後來還是乖乖改成"類別+函式"來使用看看
+find_papers_arxiv 原本是 autogen stuido 範例的 skills(Tools)，
+在 autogen stuido 未使用 class 定義類別，只使用函式定義來當成工具
+但 crewai 無法調用，所以還是改成"類別+函式"
+經測試正常，可以使用。
 
+autogen studio 的 skill 轉換成 crewai 的 tools 庫工具做法：
+1.放在專案資料夾的 tools 子資料夾內
+2.改成類別2行
+3.檔案名、類別名、函式名 皆不同(如果都相同可以嗎?待確認)
+
+crewai 的 tools 庫工具改成 autogen studio 的 skill 做法
+1.取消類別，改為函式(如果維持類別的定義，可以嗎?待確認)
 """
 import os
 import re
