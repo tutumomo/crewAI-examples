@@ -73,8 +73,8 @@ class TripAgents():
             SearchTools.search_internet,
             BrowserTools.scrape_and_summarize_website,
         ],
-        # llm = ollama,
-        llm = gemini,
+        llm = ollama,
+        # llm = gemini,
         verbose=True)
 
   def local_expert(self):
@@ -87,8 +87,8 @@ class TripAgents():
             SearchTools.search_internet,
             BrowserTools.scrape_and_summarize_website,
         ],
-        # llm = ollama,
-        llm = gemini,
+        llm = ollama,
+        # llm = gemini,
         verbose=True)
 
   def travel_concierge(self):
@@ -103,6 +103,6 @@ class TripAgents():
             BrowserTools.scrape_and_summarize_website,
             CalculatorTools.calculate,
         ],
-        # llm = ollama,
-        llm = gemini,
+        llm = ollama,
+        # llm = gemini,
         verbose=True)

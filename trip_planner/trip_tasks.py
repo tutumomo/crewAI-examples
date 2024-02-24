@@ -66,7 +66,7 @@ class TripTasks():
         from arrival to departure, integrating the city guide
         information with practical travel logistics.
         
-        Your final answer MUST be a complete expanded travel plan,
+        Your final answer MUST be a complete expanded travel plan.
         formatted as markdown, encompassing a daily schedule,
         anticipated weather conditions, recommended clothing and
         items to pack, and a detailed budget, ensuring THE BEST
